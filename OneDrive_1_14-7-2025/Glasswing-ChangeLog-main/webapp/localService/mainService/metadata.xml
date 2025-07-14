@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.gwm.sd_reqchglog.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="xGWMxC_REQCHGLOGType">
+                <Key>
+                    <PropertyRef Name="Requestid"/>
+                    <PropertyRef Name="Objectclas"/>
+                    <PropertyRef Name="Objectid"/>
+                    <PropertyRef Name="Changenr"/>
+                    <PropertyRef Name="Keyguid"/>
+                    <PropertyRef Name="Tabname"/>
+                    <PropertyRef Name="Fname"/>
+                </Key>
+                <Property Name="Requestid" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="Objectclas" Type="Edm.String" Nullable="false" MaxLength="15"/>
+                <Property Name="Objectid" Type="Edm.String" Nullable="false" MaxLength="90"/>
+                <Property Name="Changenr" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Keyguid" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="Tabname" Type="Edm.String" Nullable="false" MaxLength="16"/>
+                <Property Name="Fname" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="Field" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="Fieldshorttext" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="Tabkey254" Type="Edm.String" Nullable="false" MaxLength="254"/>
+                <Property Name="Information" Type="Edm.String" Nullable="false" MaxLength="254"/>
+                <Property Name="Rowcounterupd" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Objecttype" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Location" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="F_old" Type="Edm.String" Nullable="false" MaxLength="254"/>
+                <Property Name="F_new" Type="Edm.String" Nullable="false" MaxLength="254"/>
+                <Property Name="Udate" Type="Edm.Date"/>
+                <Property Name="Utime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="Username" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="Subtype" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Objectnumber" Type="Edm.String" Nullable="false" MaxLength="40"/>
+            </EntityType>
+            <EntityContainer Name="Container">
+                <EntitySet Name="xGWMxC_REQCHGLOG" EntityType="com.sap.gateway.srvd.gwm.sd_reqchglog.v0001.xGWMxC_REQCHGLOGType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/Objectid">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Object Value"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/Changenr">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Change Log Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/Tabname">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Table"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/Tabkey254">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Table Keys"/>
+                <Annotation Term="SAP__common.Heading" String="Long Table Key Transformed to CHAR"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Key of Modified Table Row"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/Rowcounterupd">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Row Counter - ReqUpd"/>
+                <Annotation Term="SAP__common.Heading" String="Row Counter - Request Update"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Row Counter - Request Update"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/Objecttype">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/gwm/vh_objecttype/0001;ps='srvd-*gwm*sd_reqchglog-0001';va='com.sap.gateway.srvd.gwm.sd_reqchglog.v0001.et-*gwm*c_reqchglog.objecttype'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__common.Label" String="Object Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/Location">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Location"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/Username">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/gwm/vh_user/0001;ps='srvd-*gwm*sd_reqchglog-0001';va='com.sap.gateway.srvd.gwm.sd_reqchglog.v0001.et-*gwm*c_reqchglog.username'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="User"/>
+                <Annotation Term="SAP__common.QuickInfo" String="User Name of Person Making Change in Change Document"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/Subtype">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/gwm/vh_subtype/0001;ps='srvd-*gwm*sd_reqchglog-0001';va='com.sap.gateway.srvd.gwm.sd_reqchglog.v0001.et-*gwm*c_reqchglog.subtype'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="Subtype"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/Objectnumber">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Object Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType">
+                <Annotation Term="SAP__common.Label" String="Request Change Log"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="Request Change Log"/>
+                            <PropertyValue Property="ID" String="REQCHGLOG"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="SAP__UI.ReferenceFacet">
+                                        <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#REQINFO1"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                        <Record Type="SAP__UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="General Data"/>
+                            <PropertyValue Property="ID" String="GENERAL"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="SAP__UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Object &amp; Subtype"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#OBJ_SUB"/>
+                                    </Record>
+                                    <Record Type="SAP__UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="General"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#GENERAL"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                        <Record Type="SAP__UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="Field Data"/>
+                            <PropertyValue Property="ID" String="FIELD"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="SAP__UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Field"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#FIELD1"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                        <Record Type="SAP__UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="Date, Time and User"/>
+                            <PropertyValue Property="ID" String="DATETIME"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="SAP__UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Date, Time and User"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#DATETIME1"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                        <Record Type="SAP__UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="Information"/>
+                            <PropertyValue Property="ID" String="INFORMATION"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="SAP__UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Information"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#INFORMATION1"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="DATETIME1">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Udate"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Utime"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Username"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="FIELD1">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Tabname"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Fname"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Field"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Fieldshorttext"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="F_old"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="F_new"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="GENERAL">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Objectclas"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Objectid"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Changenr"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Keyguid"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Tabkey254"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="INFORMATION1">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Information"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="OBJ_SUB">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Objecttype"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Subtype"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Objectnumber"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="REQINFO1">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Location"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Requestid"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Rowcounterupd"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Request Change Log"/>
+                        <PropertyValue Property="TypeNamePlural" String="Request Change Log"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Objecttype"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Subtype"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Location"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Objectnumber"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Requestid"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Rowcounterupd"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Objectclas"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Objectid"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Changenr"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Keyguid"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Tabname"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Udate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Utime"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Username"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Fname"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Field"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Fieldshorttext"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="F_old"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="F_new"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Tabkey254"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Information"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Objecttype"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Subtype"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Location"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Objectnumber"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Requestid"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Rowcounterupd"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Objectclas"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Tabname"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Udate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Utime"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Username"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Fname"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Field"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Fieldshorttext"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="F_old"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="F_new"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Information"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.PresentationVariant">
+                    <Record>
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record Type="SAP__common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="Requestid"/>
+                                    <PropertyValue Property="Descending" Bool="false"/>
+                                </Record>
+                                <Record Type="SAP__common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="Rowcounterupd"/>
+                                    <PropertyValue Property="Descending" Bool="false"/>
+                                </Record>
+                                <Record Type="SAP__common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="Tabname"/>
+                                    <PropertyValue Property="Descending" Bool="false"/>
+                                </Record>
+                                <Record Type="SAP__common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="Fname"/>
+                                    <PropertyValue Property="Descending" Bool="false"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="GroupBy">
+                            <Collection>
+                                <PropertyPath>Requestid</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="RequestAtLeast">
+                            <Collection>
+                                <PropertyPath>Requestid</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@SAP__UI.LineItem</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Objectnumber</PropertyPath>
+                        <PropertyPath>Requestid</PropertyPath>
+                        <PropertyPath>Tabname</PropertyPath>
+                        <PropertyPath>Udate</PropertyPath>
+                        <PropertyPath>Utime</PropertyPath>
+                        <PropertyPath>Username</PropertyPath>
+                        <PropertyPath>Fname</PropertyPath>
+                        <PropertyPath>Field</PropertyPath>
+                        <PropertyPath>Fieldshorttext</PropertyPath>
+                        <PropertyPath>F_old</PropertyPath>
+                        <PropertyPath>F_new</PropertyPath>
+                        <PropertyPath>Information</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/xGWMxC_REQCHGLOG">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="SAP__aggregation.RollupType/None"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/Requestid">
+                <Annotation Term="SAP__common.Label" String="RequestID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="RequestID GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/Objectclas">
+                <Annotation Term="SAP__common.Label" String="Change Doc. Object"/>
+                <Annotation Term="SAP__common.Heading" String="Object"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Object class"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/Keyguid">
+                <Annotation Term="SAP__common.Label" String="Key GUID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Request Change Log Key GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/Fname">
+                <Annotation Term="SAP__common.Label" String="Field Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/Field">
+                <Annotation Term="SAP__common.Label" String="Field"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/Fieldshorttext">
+                <Annotation Term="SAP__common.Label" String="Short text"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Explanatory Short Text"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/Information">
+                <Annotation Term="SAP__common.Label" String="Information"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/F_old">
+                <Annotation Term="SAP__common.Label" String="Old Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Old Content of Changed Field"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/F_new">
+                <Annotation Term="SAP__common.Label" String="New Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="New Content of Changed Field"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/Udate">
+                <Annotation Term="SAP__common.Label" String="Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Creation Date of Change Document"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_REQCHGLOGType/Utime">
+                <Annotation Term="SAP__common.Label" String="Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Time of Change"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

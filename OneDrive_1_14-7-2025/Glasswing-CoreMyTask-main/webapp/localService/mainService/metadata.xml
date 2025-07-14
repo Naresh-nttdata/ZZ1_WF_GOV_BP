@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.gwm.sd_tasks.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="xGWMxCE_TASKSType">
+                <Key>
+                    <PropertyRef Name="Requestid"/>
+                </Key>
+                <Property Name="Requestid" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="Criticalityrulestatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Informationrulestatus" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="Messagerulestatus" Type="Edm.String" Nullable="false" MaxLength="220"/>
+                <Property Name="Core" Type="Edm.Guid"/>
+                <Property Name="Objecttype" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Subtype" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Requesttype" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Objectnumber" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Objectdescription" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="Processstep" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Createdby" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="Createdat" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="Agdet_description" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="Agdet_agdetpriority" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Agdet_setup" Type="Edm.Guid"/>
+                <Property Name="__EntityControl" Type="com.sap.gateway.srvd.gwm.sd_tasks.v0001.EntityControl"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.gwm.sd_tasks.v0001.SAP__Message)" Nullable="false"/>
+            </EntityType>
+            <ComplexType Name="EntityControl">
+                <Property Name="Deletable" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="Updatable" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="SAP__Message">
+                <Property Name="code" Type="Edm.String" Nullable="false"/>
+                <Property Name="message" Type="Edm.String" Nullable="false"/>
+                <Property Name="target" Type="Edm.String"/>
+                <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+                <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="longtextUrl" Type="Edm.String"/>
+            </ComplexType>
+            <EntityContainer Name="Container">
+                <EntitySet Name="xGWMxCE_TASKS" EntityType="com.sap.gateway.srvd.gwm.sd_tasks.v0001.xGWMxCE_TASKSType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.xGWMxCE_TASKSType/Criticalityrulestatus">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Criticality"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Criticality Rule Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxCE_TASKSType/Objecttype">
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/gwm/vh_objecttype/0001;ps='srvd-*gwm*sd_tasks-0001';va='com.sap.gateway.srvd.gwm.sd_tasks.v0001.et-*gwm*ce_tasks.objecttype'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__common.Label" String="Object Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxCE_TASKSType/Subtype">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/gwm/vh_subtype/0001;ps='srvd-*gwm*sd_tasks-0001';va='com.sap.gateway.srvd.gwm.sd_tasks.v0001.et-*gwm*ce_tasks.subtype'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="Subtype"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxCE_TASKSType/Requesttype">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Request Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxCE_TASKSType/Objectnumber">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Object Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxCE_TASKSType/Processstep">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Process Step"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxCE_TASKSType/Createdby">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxCE_TASKSType/Agdet_agdetpriority">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Priority"/>
+                <Annotation Term="SAP__common.Heading" String="Responsibility - Priority"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Responsibility - Priority"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxCE_TASKSType/__EntityControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxCE_TASKSType">
+                <Annotation Term="SAP__common.Label" String="Tasks"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Tasks"/>
+                            <PropertyValue Property="ID" String="TASK"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#TASK1"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="TASK1">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Informationrulestatus"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Messagerulestatus"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Requestid"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Objecttype"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Subtype"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Requesttype"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Objectnumber"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Objectdescription"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Processstep"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Agdet_description"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Agdet_agdetpriority"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Agdet_setup"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Createdby"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Createdat"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Tasks"/>
+                        <PropertyValue Property="TypeNamePlural" String="My Tasks"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Label" String="Business Partner ID"/>
+                                <PropertyValue Property="Value" Path="Requestid"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Label" String="Business Partner Name"/>
+                                <PropertyValue Property="Value" Path="Subtype"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Informationrulestatus"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Messagerulestatus"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Requestid"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Objecttype"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Subtype"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Requesttype"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Objectnumber"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Objectdescription"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Processstep"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Agdet_description"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Agdet_agdetpriority"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Agdet_setup"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Createdby"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Createdat"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Criticality" Path="Criticalityrulestatus"/>
+                            <PropertyValue Property="Value" Path="Informationrulestatus"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Messagerulestatus"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Objecttype"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Subtype"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Objectnumber"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Objectdescription"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Informationrulestatus</PropertyPath>
+                        <PropertyPath>Messagerulestatus</PropertyPath>
+                        <PropertyPath>Requestid</PropertyPath>
+                        <PropertyPath>Objecttype</PropertyPath>
+                        <PropertyPath>Subtype</PropertyPath>
+                        <PropertyPath>Requesttype</PropertyPath>
+                        <PropertyPath>Objectnumber</PropertyPath>
+                        <PropertyPath>Objectdescription</PropertyPath>
+                        <PropertyPath>Processstep</PropertyPath>
+                        <PropertyPath>Agdet_description</PropertyPath>
+                        <PropertyPath>Agdet_agdetpriority</PropertyPath>
+                        <PropertyPath>Agdet_setup</PropertyPath>
+                        <PropertyPath>Createdby</PropertyPath>
+                        <PropertyPath>Createdat</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/xGWMxCE_TASKS">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>__EntityControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>__EntityControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Path="__EntityControl/Deletable"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Path="__EntityControl/Updatable"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="SAP__aggregation.RollupType/None"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxCE_TASKSType/Core">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Core GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxCE_TASKSType/Requestid">
+                <Annotation Term="SAP__common.Label" String="RequestID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="RequestID GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxCE_TASKSType/Informationrulestatus">
+                <Annotation Term="SAP__common.Label" String="Completeness"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxCE_TASKSType/Messagerulestatus">
+                <Annotation Term="SAP__common.Label" String="Message"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxCE_TASKSType/Objectdescription">
+                <Annotation Term="SAP__common.Label" String="Object Description"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxCE_TASKSType/Createdat">
+                <Annotation Term="SAP__common.Label" String="Created At"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxCE_TASKSType/Agdet_description">
+                <Annotation Term="SAP__common.Label" String="Responsibility"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxCE_TASKSType/Agdet_setup">
+                <Annotation Term="SAP__common.Label" String="GUID Responsibility"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxCE_TASKSType/__EntityControl/Deletable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxCE_TASKSType/__EntityControl/Updatable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.EntityControl/Deletable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.EntityControl/Updatable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

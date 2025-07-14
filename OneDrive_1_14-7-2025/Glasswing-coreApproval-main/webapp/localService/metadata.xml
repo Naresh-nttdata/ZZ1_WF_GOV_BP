@@ -1,0 +1,1392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="I_DraftAdministrativeDataType">
+                <Key>
+                    <PropertyRef Name="DraftUUID"/>
+                    <PropertyRef Name="DraftEntityType"/>
+                </Key>
+                <Property Name="DraftUUID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="DraftEntityType" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="CreationDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="CreatedByUser" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="LastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="LastChangedByUser" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="DraftAccessType" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="ProcessingStartDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="InProcessByUser" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="DraftIsKeptByUser" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="EnqueueStartDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="DraftIsCreatedByMe" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="DraftIsLastChangedByMe" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="DraftIsProcessedByMe" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="CreatedByUserDescription" Type="Edm.String" Nullable="false" MaxLength="80"/>
+                <Property Name="LastChangedByUserDescription" Type="Edm.String" Nullable="false" MaxLength="80"/>
+                <Property Name="InProcessByUserDescription" Type="Edm.String" Nullable="false" MaxLength="80"/>
+            </EntityType>
+            <EntityType Name="xGWMxC_WFCTRLType">
+                <Key>
+                    <PropertyRef Name="Core"/>
+                    <PropertyRef Name="Counter"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="Core" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="Counter" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="Rowcounterupd" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Objecttype" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Subtype" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Location" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Objectnumber" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Ownership" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="Workflowcategory" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Workflowprocedure" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Workflowsequence" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Digitalsignature" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="Targetfield" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="Targetprofile" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="Targetprofiletype" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="Targetentity" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="Fromvalue" Type="Edm.String" Nullable="false" MaxLength="254"/>
+                <Property Name="Tovalue" Type="Edm.String" Nullable="false" MaxLength="254"/>
+                <Property Name="Keyfield1" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="Keyfield2" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="Keyfield3" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="Approvalobjectsetup" Type="Edm.Guid"/>
+                <Property Name="Nextapproval" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="Requestid" Type="Edm.Guid"/>
+                <Property Name="Completedby" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="Completedat" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="EtagLastChangedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="V_CRITICALITYRULESTATUS" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="V_APPROVAL_STATUS" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="V_AUTHORIZED_URL" Type="Edm.String" Nullable="false" MaxLength="80"/>
+                <Property Name="V_AUTHORIZED" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="V_APPROVAL_SET_BY_RULE" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="V_USERNAME" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="V_RULEDATETIME" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="DraftEntityCreationDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="DraftEntityLastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="__EntityControl" Type="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.EntityControl"/>
+                <Property Name="__OperationControl" Type="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.xGWMxC_WFCTRLOperationControl"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.SAP__Message)" Nullable="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.I_DraftAdministrativeDataType"/>
+                <NavigationProperty Name="SiblingEntity" Type="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.xGWMxC_WFCTRLType"/>
+            </EntityType>
+            <EntityType Name="xGWMxC_CORE_OBJ_APPROVALType">
+                <Key>
+                    <PropertyRef Name="Core"/>
+                </Key>
+                <Property Name="Core" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="Objecttype" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Subtype" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Objectnumber" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Createdby" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="Createdat" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="Requestid" Type="Edm.Guid"/>
+                <Property Name="Processstep" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Coreobject" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Requesttype" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Locationgroup" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Inapprovalprocess" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="scale" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="V_CRITICALITYRULESTATUS" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="V_APPROVAL_STATUS" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="V_OBJECT_DESCRIPTION" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="V_SEND_TO_APPROVAL" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="V_APPROVAL_PROGRESS" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="V_TOTAL_APPROVAL" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="V_APPROVAL_PROGRESS_CS" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="V_AUTH_NEXT_OWNERSHIP_URL" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="V_AUTH_NEXT_OWNERSHIP" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="V_AUTH_NEXT_OWNERSHIP_CS" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="__EntityControl" Type="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.EntityControl"/>
+                <Property Name="__OperationControl" Type="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.xGWMxC_CORE_OBJ_APPROVALOperationControl"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.SAP__Message)" Nullable="false"/>
+                <NavigationProperty Name="_WFctrl" Type="Collection(com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.xGWMxC_WFCTRLType)"/>
+            </EntityType>
+            <ComplexType Name="xGWMxC_WFCTRLOperationControl">
+                <Property Name="Edit" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="xGWMxC_CORE_OBJ_APPROVALOperationControl">
+                <Property Name="approve" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="EntityControl">
+                <Property Name="Updatable" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="Deletable" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="SAP__Message">
+                <Property Name="code" Type="Edm.String" Nullable="false"/>
+                <Property Name="message" Type="Edm.String" Nullable="false"/>
+                <Property Name="target" Type="Edm.String"/>
+                <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+                <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="longtextUrl" Type="Edm.String"/>
+            </ComplexType>
+            <Action Name="Prepare" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.xGWMxC_WFCTRLType" Nullable="false"/>
+            </Action>
+            <Action Name="Resume" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.xGWMxC_WFCTRLType" Nullable="false"/>
+            </Action>
+            <Action Name="Activate" EntitySetPath="_it" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.xGWMxC_WFCTRLType" Nullable="false"/>
+                <ReturnType Type="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.xGWMxC_WFCTRLType" Nullable="false"/>
+            </Action>
+            <Action Name="approve" EntitySetPath="_it" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.xGWMxC_CORE_OBJ_APPROVALType" Nullable="false"/>
+                <ReturnType Type="Collection(com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.xGWMxC_CORE_OBJ_APPROVALType)" Nullable="false"/>
+            </Action>
+            <Action Name="Discard" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.xGWMxC_WFCTRLType" Nullable="false"/>
+            </Action>
+            <Action Name="Edit" EntitySetPath="_it" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.xGWMxC_WFCTRLType" Nullable="false"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean" Nullable="false"/>
+                <ReturnType Type="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.xGWMxC_WFCTRLType" Nullable="false"/>
+            </Action>
+            <EntityContainer Name="Container">
+                <EntitySet Name="I_DraftAdministrativeData" EntityType="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.I_DraftAdministrativeDataType"/>
+                <EntitySet Name="xGWMxC_CORE_OBJ_APPROVAL" EntityType="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.xGWMxC_CORE_OBJ_APPROVALType">
+                    <NavigationPropertyBinding Path="_WFctrl" Target="xGWMxC_WFCTRL"/>
+                </EntitySet>
+                <EntitySet Name="xGWMxC_WFCTRL" EntityType="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.xGWMxC_WFCTRLType">
+                    <NavigationPropertyBinding Path="DraftAdministrativeData" Target="I_DraftAdministrativeData"/>
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="xGWMxC_WFCTRL"/>
+                </EntitySet>
+            </EntityContainer>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/DraftEntityType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft Entity ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/CreatedByUser">
+                <Annotation Term="SAP__common.Text" Path="CreatedByUserDescription"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_draftadministrativeuservh/0001;ps='srvd-*gwm*sd_core_obj_approval-0001';va='com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.et-i_draftadministrativedata.createdbyuser'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="Draft Created By"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/LastChangedByUser">
+                <Annotation Term="SAP__common.Text" Path="LastChangedByUserDescription"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_draftadministrativeuservh/0001;ps='srvd-*gwm*sd_core_obj_approval-0001';va='com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.et-i_draftadministrativedata.lastchangedbyuser'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="Draft Last Changed By"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/DraftAccessType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft Access Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/InProcessByUser">
+                <Annotation Term="SAP__common.Text" Path="InProcessByUserDescription"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft In Process By"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType">
+                <Annotation Term="SAP__common.Label" String="Draft Administration Data"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/I_DraftAdministrativeData">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/OR SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group SAP__capabilities.SearchExpressions/phrase"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="CreationDateTime"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="LastChangeDateTime"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Core">
+                <Annotation Term="SAP__core.Immutable"/>
+                <Annotation Term="SAP__common.Label" String="Core GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Counter">
+                <Annotation Term="SAP__core.Immutable"/>
+                <Annotation Term="SAP__common.Label" String="Counter"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Counter GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Rowcounterupd">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Row Counter - ReqUpd"/>
+                <Annotation Term="SAP__common.Heading" String="Row Counter - Request Update"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Row Counter - Request Update"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Objecttype">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Object Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Subtype">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Subtype"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Location">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Location"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Objectnumber">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Object Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Ownership">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Ownership"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Workflowcategory">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Workflow Category"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Workflow Catetory"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Workflowprocedure">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Workflow Procedure"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Workflowsequence">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Workflow Sequence"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Targetprofile">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Target Profile"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Targetprofiletype">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Target Profiletype"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Completedby">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Completed By"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/V_CRITICALITYRULESTATUS">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Criticality"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Criticality Rule Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/V_APPROVAL_STATUS">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Approval Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/V_AUTHORIZED_URL">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.IsImageURL"/>
+                <Annotation Term="SAP__common.Label" String="Authorized - Approve"/>
+                <Annotation Term="SAP__common.Heading" String="Authorized to Approve"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Authorized to Approve"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/V_AUTHORIZED">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Authorized to Approv"/>
+                <Annotation Term="SAP__common.Heading" String="Authorized to Approve"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Authorized to Approve"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/V_APPROVAL_SET_BY_RULE">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Set by Rule"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/V_USERNAME">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="User Name"/>
+                <Annotation Term="SAP__common.Heading" String="User"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/V_RULEDATETIME">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Date/Time"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/HasDraftEntity">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Has Draft"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Draft - Indicator - Has draft document"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/DraftEntityCreationDateTime">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft Created On"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/DraftEntityLastChangeDateTime">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft Last Changed On"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/HasActiveEntity">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Has active"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Draft - Indicator - Has active document"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/IsActiveEntity">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Is active"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Draft - Indicator - Is active document"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/__EntityControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/__OperationControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/xGWMxC_WFCTRL">
+                <Annotation Term="SAP__common.DraftRoot">
+                    <Record>
+                        <PropertyValue Property="PreparationAction" String="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.Prepare"/>
+                        <PropertyValue Property="ActivationAction" String="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.Activate"/>
+                        <PropertyValue Property="DiscardAction" String="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.Discard"/>
+                        <PropertyValue Property="EditAction" String="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.Edit"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>V_CRITICALITYRULESTATUS</PropertyPath>
+                                <PropertyPath>V_APPROVAL_STATUS</PropertyPath>
+                                <PropertyPath>V_AUTHORIZED_URL</PropertyPath>
+                                <PropertyPath>V_AUTHORIZED</PropertyPath>
+                                <PropertyPath>V_APPROVAL_SET_BY_RULE</PropertyPath>
+                                <PropertyPath>V_USERNAME</PropertyPath>
+                                <PropertyPath>V_RULEDATETIME</PropertyPath>
+                                <PropertyPath>__EntityControl</PropertyPath>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="DraftEntityCreationDateTime"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="DraftEntityLastChangeDateTime"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>V_CRITICALITYRULESTATUS</PropertyPath>
+                                <PropertyPath>V_APPROVAL_STATUS</PropertyPath>
+                                <PropertyPath>V_AUTHORIZED_URL</PropertyPath>
+                                <PropertyPath>V_AUTHORIZED</PropertyPath>
+                                <PropertyPath>V_APPROVAL_SET_BY_RULE</PropertyPath>
+                                <PropertyPath>V_USERNAME</PropertyPath>
+                                <PropertyPath>V_RULEDATETIME</PropertyPath>
+                                <PropertyPath>__EntityControl</PropertyPath>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Path="__EntityControl/Deletable"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Path="__EntityControl/Updatable"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Edit(SAP__self.xGWMxC_WFCTRLType)">
+                <Annotation Term="SAP__core.OperationAvailable" Path="_it/__OperationControl/Edit"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType">
+                <Annotation Term="SAP__common.Label" String="Workflow Control"/>
+                <Annotation Term="SAP__UI.Facets" Qualifier="WFCTRL">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Approvals"/>
+                            <PropertyValue Property="ID" String="WFCTRL"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="V_AUTHORIZED_URL"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Location"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Ownership"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Nextapproval"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Workflowsequence"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Targetfield"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Targetprofiletype"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Targetprofile"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Targetentity"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Fromvalue"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Tovalue"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="V_USERNAME"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="V_RULEDATETIME"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="V_APPROVAL_SET_BY_RULE"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Completedby"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Completedat"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="WFCTRL">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Criticality" Path="V_CRITICALITYRULESTATUS"/>
+                                    <PropertyValue Property="Value" Path="V_APPROVAL_STATUS"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Workflow Control"/>
+                        <PropertyValue Property="TypeNamePlural" String="Approvals"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="V_APPROVAL_STATUS"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="V_AUTHORIZED_URL"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Location"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Ownership"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Nextapproval"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Workflowsequence"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Targetfield"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Targetprofiletype"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Targetprofile"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Targetentity"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Fromvalue"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Tovalue"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="V_USERNAME"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="V_RULEDATETIME"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="V_APPROVAL_SET_BY_RULE"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Completedby"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Completedat"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem" Qualifier="WFCTRL">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Criticality" Path="V_CRITICALITYRULESTATUS"/>
+                            <PropertyValue Property="Value" Path="V_APPROVAL_STATUS"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="V_AUTHORIZED_URL"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Location"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Ownership"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Nextapproval"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Workflowsequence"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Targetfield"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Targetprofiletype"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Targetprofile"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Targetentity"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Fromvalue"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Tovalue"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="V_USERNAME"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="V_RULEDATETIME"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="V_APPROVAL_SET_BY_RULE"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Completedby"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Completedat"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>V_APPROVAL_STATUS</PropertyPath>
+                        <PropertyPath>V_AUTHORIZED_URL</PropertyPath>
+                        <PropertyPath>Nextapproval</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/Core">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Core GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/Objecttype">
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/gwm/vh_objecttype/0001;ps='srvd-*gwm*sd_core_obj_approval-0001';va='com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.et-*gwm*c_core_obj_approval.objecttype'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__common.Label" String="Object Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/Subtype">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/gwm/vh_subtype/0001;ps='srvd-*gwm*sd_core_obj_approval-0001';va='com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.et-*gwm*c_core_obj_approval.subtype'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="Subtype"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/Objectnumber">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Object Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/Createdby">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/Processstep">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Process Step"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/Coreobject">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Core Object"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/Requesttype">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Request Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/Locationgroup">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Location Group"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/V_CRITICALITYRULESTATUS">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Criticality"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Criticality Rule Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/V_APPROVAL_STATUS">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Approval Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/V_OBJECT_DESCRIPTION">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Object Description"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/V_SEND_TO_APPROVAL">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Send To Approval"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/V_APPROVAL_PROGRESS">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Counter"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/V_TOTAL_APPROVAL">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Counter"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/V_APPROVAL_PROGRESS_CS">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Criticality"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Criticality Rule Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/V_AUTH_NEXT_OWNERSHIP_URL">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.IsImageURL"/>
+                <Annotation Term="SAP__common.Label" String="Auth. Next Approval"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/V_AUTH_NEXT_OWNERSHIP">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Auth. Next Approval"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/V_AUTH_NEXT_OWNERSHIP_CS">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Criticality"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Criticality Rule Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/__EntityControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/__OperationControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/xGWMxC_CORE_OBJ_APPROVAL">
+                <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_WFctrl"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>V_CRITICALITYRULESTATUS</PropertyPath>
+                                <PropertyPath>V_APPROVAL_STATUS</PropertyPath>
+                                <PropertyPath>V_OBJECT_DESCRIPTION</PropertyPath>
+                                <PropertyPath>V_SEND_TO_APPROVAL</PropertyPath>
+                                <PropertyPath>V_APPROVAL_PROGRESS</PropertyPath>
+                                <PropertyPath>V_TOTAL_APPROVAL</PropertyPath>
+                                <PropertyPath>V_APPROVAL_PROGRESS_CS</PropertyPath>
+                                <PropertyPath>V_AUTH_NEXT_OWNERSHIP_URL</PropertyPath>
+                                <PropertyPath>V_AUTH_NEXT_OWNERSHIP</PropertyPath>
+                                <PropertyPath>V_AUTH_NEXT_OWNERSHIP_CS</PropertyPath>
+                                <PropertyPath>__EntityControl</PropertyPath>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>V_CRITICALITYRULESTATUS</PropertyPath>
+                                <PropertyPath>V_APPROVAL_STATUS</PropertyPath>
+                                <PropertyPath>V_OBJECT_DESCRIPTION</PropertyPath>
+                                <PropertyPath>V_SEND_TO_APPROVAL</PropertyPath>
+                                <PropertyPath>V_APPROVAL_PROGRESS</PropertyPath>
+                                <PropertyPath>V_TOTAL_APPROVAL</PropertyPath>
+                                <PropertyPath>V_APPROVAL_PROGRESS_CS</PropertyPath>
+                                <PropertyPath>V_AUTH_NEXT_OWNERSHIP_URL</PropertyPath>
+                                <PropertyPath>V_AUTH_NEXT_OWNERSHIP</PropertyPath>
+                                <PropertyPath>V_AUTH_NEXT_OWNERSHIP_CS</PropertyPath>
+                                <PropertyPath>__EntityControl</PropertyPath>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Path="__EntityControl/Updatable"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.approve(SAP__self.xGWMxC_CORE_OBJ_APPROVALType)">
+                <Annotation Term="SAP__core.OperationAvailable" Path="_it/__OperationControl/approve"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType">
+                <Annotation Term="SAP__common.Label" String="Core Object - Approval"/>
+                <Annotation Term="SAP__UI.DataPoint" Qualifier="V_APPROVAL_PROGRESS">
+                    <Record>
+                        <PropertyValue Property="Value" Path="V_APPROVAL_PROGRESS"/>
+                        <PropertyValue Property="Title" String="Approval Progress"/>
+                        <PropertyValue Property="TargetValue" Path="V_TOTAL_APPROVAL"/>
+                        <PropertyValue Property="Visualization" EnumMember="SAP__UI.VisualizationType/Progress"/>
+                        <PropertyValue Property="Criticality" Path="V_APPROVAL_PROGRESS_CS"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="Approval Information"/>
+                            <PropertyValue Property="ID" String="CORE_APPROVAL_ID"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="SAP__UI.ReferenceFacet">
+                                        <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#CORE_APPROVAL"/>
+                                    </Record>
+                                    <Record Type="SAP__UI.ReferenceFacet">
+                                        <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#CORE_APPROVAL1"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                        <Record Type="SAP__UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="Object Details"/>
+                            <PropertyValue Property="ID" String="GENERAL"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="SAP__UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Object &amp; Subtype"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#OBJ_LOC"/>
+                                    </Record>
+                                    <Record Type="SAP__UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Details"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#GENERAL"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Approval Control"/>
+                            <PropertyValue Property="ID" String="WFCTRL_ID"/>
+                            <PropertyValue Property="Target" AnnotationPath="_WFctrl/@SAP__UI.LineItem#WFCTRL"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="CORE_APPROVAL">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Criticality" Path="V_CRITICALITYRULESTATUS"/>
+                                    <PropertyValue Property="Value" Path="V_APPROVAL_STATUS"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Core"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Requestid"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Processstep"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="CORE_APPROVAL1">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataFieldForAnnotation">
+                                    <PropertyValue Property="Label" String="Approval Progress"/>
+                                    <PropertyValue Property="Target" AnnotationPath="@SAP__UI.DataPoint#V_APPROVAL_PROGRESS"/>
+                                    <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Low"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="GENERAL">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="V_AUTH_NEXT_OWNERSHIP_URL"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="V_AUTH_NEXT_OWNERSHIP"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Objectnumber"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="V_OBJECT_DESCRIPTION"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="V_SEND_TO_APPROVAL"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Coreobject"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Requesttype"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Inapprovalprocess"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="OBJ_LOC">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Objecttype"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Subtype"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Approvals"/>
+                        <PropertyValue Property="TypeNamePlural" String="Approvals"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Label" String="Approval"/>
+                                <PropertyValue Property="Value" Path="Objectnumber"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="V_APPROVAL_STATUS"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Approve Next"/>
+                            <PropertyValue Property="Action" String="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.approve(com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.xGWMxC_CORE_OBJ_APPROVALType)"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="SAP__UI.OperationGroupingType/Isolated"/>
+                            <PropertyValue Property="Determining" Bool="true"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Core"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="V_AUTH_NEXT_OWNERSHIP"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Objecttype"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Subtype"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Objectnumber"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="V_OBJECT_DESCRIPTION"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="V_SEND_TO_APPROVAL"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Requestid"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Processstep"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Coreobject"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Requesttype"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Inapprovalprocess"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Criticality" Path="V_CRITICALITYRULESTATUS"/>
+                            <PropertyValue Property="Value" Path="V_APPROVAL_STATUS"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="V_AUTH_NEXT_OWNERSHIP_URL"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                            <Annotation Term="SAP__HTML5.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="5em"/>
+                                </Record>
+                            </Annotation>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Criticality" Path="V_AUTH_NEXT_OWNERSHIP_CS"/>
+                            <PropertyValue Property="Value" Path="V_AUTH_NEXT_OWNERSHIP"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Objecttype"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Subtype"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Objectnumber"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="V_OBJECT_DESCRIPTION"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="V_SEND_TO_APPROVAL"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldForAnnotation">
+                            <PropertyValue Property="Label" String="Approval Progress"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.DataPoint#V_APPROVAL_PROGRESS"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Low"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Requestid"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Approve"/>
+                            <PropertyValue Property="Action" String="com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.approve(com.sap.gateway.srvd.gwm.sd_core_obj_approval.v0001.xGWMxC_CORE_OBJ_APPROVALType)"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="SAP__UI.OperationGroupingType/ChangeSet"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>V_APPROVAL_STATUS</PropertyPath>
+                        <PropertyPath>V_AUTH_NEXT_OWNERSHIP</PropertyPath>
+                        <PropertyPath>Objecttype</PropertyPath>
+                        <PropertyPath>Subtype</PropertyPath>
+                        <PropertyPath>Objectnumber</PropertyPath>
+                        <PropertyPath>V_OBJECT_DESCRIPTION</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="SAP__aggregation.RollupType/None"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/Createdat">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Created At"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/DraftUUID">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft (Technical ID)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/ProcessingStartDateTime">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft In Process Since"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/DraftIsKeptByUser">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft Is Kept By User"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/EnqueueStartDateTime">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft Locked Since"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/DraftIsCreatedByMe">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft Created By Me"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/DraftIsLastChangedByMe">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft Last Changed By Me"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/DraftIsProcessedByMe">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft In Process By Me"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/CreatedByUserDescription">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft Created By (Description)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/LastChangedByUserDescription">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft Last Changed By (Description)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/InProcessByUserDescription">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft In Process By (Description)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/CreationDateTime">
+                <Annotation Term="SAP__common.Label" String="Draft Created On"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/LastChangeDateTime">
+                <Annotation Term="SAP__common.Label" String="Draft Last Changed On"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Digitalsignature">
+                <Annotation Term="SAP__common.Label" String="Digital Signature"/>
+                <Annotation Term="SAP__common.Heading" String="Digital Signature Required"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Digital Signature Required"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Targetfield">
+                <Annotation Term="SAP__common.Label" String="Target"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Target Field"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Targetentity">
+                <Annotation Term="SAP__common.Label" String="Target Entity"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Fromvalue">
+                <Annotation Term="SAP__common.Label" String="From Value"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Tovalue">
+                <Annotation Term="SAP__common.Label" String="To Value"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Keyfield1">
+                <Annotation Term="SAP__common.Label" String="Key Field 1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Keyfield2">
+                <Annotation Term="SAP__common.Label" String="Key Field 2"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Keyfield3">
+                <Annotation Term="SAP__common.Label" String="Key Field 3"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Approvalobjectsetup">
+                <Annotation Term="SAP__common.Label" String="ApprovalObjectSetup"/>
+                <Annotation Term="SAP__common.Heading" String="Approval Object - Setup"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Approval Object - Setup"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Nextapproval">
+                <Annotation Term="SAP__common.Label" String="Next Approval"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Requestid">
+                <Annotation Term="SAP__common.Label" String="RequestID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="RequestID GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/Completedat">
+                <Annotation Term="SAP__common.Label" String="Completed At"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/EtagLastChangedAt">
+                <Annotation Term="SAP__common.Label" String="Changed On"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Last Change Date Time"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/__EntityControl/Updatable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/__EntityControl/Deletable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLType/__OperationControl/Edit">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/Requestid">
+                <Annotation Term="SAP__common.Label" String="RequestID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="RequestID GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/Inapprovalprocess">
+                <Annotation Term="SAP__common.Label" String="Approval Process is"/>
+                <Annotation Term="SAP__common.Heading" String="Approval Process is Running"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Approval Process is Running"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/__EntityControl/Updatable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/__EntityControl/Deletable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALType/__OperationControl/approve">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_WFCTRLOperationControl/Edit">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.xGWMxC_CORE_OBJ_APPROVALOperationControl/approve">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.EntityControl/Updatable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.EntityControl/Deletable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Edit(SAP__self.xGWMxC_WFCTRLType)/PreserveChanges">
+                <Annotation Term="SAP__common.Label" String="TRUE"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Data element for domain BOOLE: TRUE (='X') and FALSE (=' ')"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

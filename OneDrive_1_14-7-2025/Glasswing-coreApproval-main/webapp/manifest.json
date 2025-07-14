@@ -1,0 +1,164 @@
+{
+  "_version": "1.60.0",
+  "sap.app": {
+    "id": "gwm.coreapproval",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:fpm",
+      "version": "1.16.3",
+      "toolsId": "fadd90b5-22eb-461b-81da-d89882e4bca7"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata4/gwm/sd_core_obj_approval/srvd/gwm/sd_core_obj_approval/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      },
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.120.14",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "gwm.coreapproval.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "name": "xGWMxC_CORE_OBJ_APPROVALMain",
+          "pattern": ":?query:",
+          "target": "xGWMxC_CORE_OBJ_APPROVALMain"
+        },
+        {
+          "name": "xGWMxC_CORE_OBJ_APPROVALObjectPage",
+          "pattern": "xGWMxC_CORE_OBJ_APPROVAL({xGWMxC_CORE_OBJ_APPROVALKey}):?query:",
+          "target": "xGWMxC_CORE_OBJ_APPROVALObjectPage"
+        },
+        {
+          "name": "xGWMxC_CORE_OBJ_APPROVAL__WFctrlObjectPage",
+          "pattern": "xGWMxC_CORE_OBJ_APPROVAL({xGWMxC_CORE_OBJ_APPROVALKey})/_WFctrl({_WFctrlKey}):?query:",
+          "target": "xGWMxC_CORE_OBJ_APPROVAL__WFctrlObjectPage"
+        }
+      ],
+      "targets": {
+        "xGWMxC_CORE_OBJ_APPROVALMain": {
+          "type": "Component",
+          "id": "xGWMxC_CORE_OBJ_APPROVALMain",
+          "name": "sap.fe.core.fpm",
+          "options": {
+            "settings": {
+              "navigation": {
+                "xGWMxC_CORE_OBJ_APPROVAL": {
+                  "detail": {
+                    "route": "xGWMxC_CORE_OBJ_APPROVALObjectPage"
+                  }
+                }
+              },
+              "contextPath": "/xGWMxC_CORE_OBJ_APPROVAL",
+              "viewName": "gwm.coreapproval.ext.main.Main"
+            }
+          }
+        },
+        "xGWMxC_CORE_OBJ_APPROVALObjectPage": {
+          "type": "Component",
+          "id": "xGWMxC_CORE_OBJ_APPROVALObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "navigation": {
+                "_WFctrl": {
+                  "detail": {
+                    "route": "xGWMxC_CORE_OBJ_APPROVAL__WFctrlObjectPage"
+                  }
+                }
+              },
+              "contextPath": "/xGWMxC_CORE_OBJ_APPROVAL"
+            }
+          }
+        },
+        "xGWMxC_CORE_OBJ_APPROVAL__WFctrlObjectPage": {
+          "type": "Component",
+          "id": "xGWMxC_CORE_OBJ_APPROVAL__WFctrlObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "navigation": {},
+              "contextPath": "/xGWMxC_CORE_OBJ_APPROVAL/_WFctrl"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {}
+}

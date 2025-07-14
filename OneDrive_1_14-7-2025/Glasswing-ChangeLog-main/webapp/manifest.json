@@ -1,0 +1,142 @@
+{
+  "_version": "1.60.0",
+  "sap.app": {
+    "id": "gwm.changelog",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:fpm",
+      "version": "1.16.4",
+      "toolsId": "55870584-56cd-440b-a9fe-581444f77294"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata4/gwm/sb_reqchglog/srvd/gwm/sd_reqchglog/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.120.14",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "gwm.changelog.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "name": "xGWMxC_REQCHGLOGMain",
+          "pattern": ":?query:",
+          "target": "xGWMxC_REQCHGLOGMain"
+        },
+        {
+          "name": "xGWMxC_REQCHGLOGObjectPage",
+          "pattern": "xGWMxC_REQCHGLOG({xGWMxC_REQCHGLOGKey}):?query:",
+          "target": "xGWMxC_REQCHGLOGObjectPage"
+        }
+      ],
+      "targets": {
+        "xGWMxC_REQCHGLOGMain": {
+          "type": "Component",
+          "id": "xGWMxC_REQCHGLOGMain",
+          "name": "sap.fe.core.fpm",
+          "options": {
+            "settings": {
+              "navigation": {
+                "xGWMxC_REQCHGLOG": {
+                  "detail": {
+                    "route": "xGWMxC_REQCHGLOGObjectPage"
+                  }
+                }
+              },
+              "contextPath": "/xGWMxC_REQCHGLOG",
+              "viewName": "gwm.changelog.ext.main.Main"
+            }
+          }
+        },
+        "xGWMxC_REQCHGLOGObjectPage": {
+          "type": "Component",
+          "id": "xGWMxC_REQCHGLOGObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "navigation": {},
+              "contextPath": "/xGWMxC_REQCHGLOG"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {}
+}
