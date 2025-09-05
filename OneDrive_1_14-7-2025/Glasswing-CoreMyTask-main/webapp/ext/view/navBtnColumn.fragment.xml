@@ -1,8 +1,0 @@
-<core:FragmentDefinition
-    xmlns:core="sap.ui.core"
-    xmlns="sap.m"
->
-    <HBox core:require="{handler: 'gwm/coremytask/ext/controller/Action'}" >
-        <Button icon="sap-icon://journey-arrive" press="handler.navToApp" type="Transparent"/>
-    </HBox>
-</core:FragmentDefinition>
