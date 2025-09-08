@@ -1,3 +1,4 @@
+
 sap.ui.define(['sap/fe/test/ObjectPage'], function(ObjectPage) {
     'use strict';
 
