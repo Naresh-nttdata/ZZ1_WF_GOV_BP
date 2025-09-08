@@ -1,0 +1,1141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="WFBPGovRecordsType">
+                <Key>
+                    <PropertyRef Name="WfBpgovrecordsID"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="WfBpgovrecordsID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="BusinessPartner" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="ReferenceBusinessPartner" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DistributionChannel" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="CustomerFirstName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="CustomerLastName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Street1" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="Street2" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="City" Type="Edm.String" Nullable="false" MaxLength="35"/>
+                <Property Name="PostCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="241"/>
+                <Property Name="EmailFinance" Type="Edm.String" Nullable="false" MaxLength="241"/>
+                <Property Name="TelNumber1" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="TelNumber2" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="AccountAssignment" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="VatRegistration" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="CompanyRegistration" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="ContractValue" Type="Edm.String" Nullable="false" MaxLength="25"/>
+                <Property Name="Department" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="RequestedBy" Type="Edm.String" Nullable="false" MaxLength="15"/>
+                <Property Name="AuthoriserSelected" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="DateTimeRequested" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="Actions" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="CreatedBy" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="LocalInstanceLastChangedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="DraftEntityCreationDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="DraftEntityLastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="__EntityControl" Type="com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.EntityControl"/>
+                <Property Name="__OperationControl" Type="com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.WFBPGovRecordsOperationControl"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.SAP__Message)" Nullable="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.I_DraftAdministrativeDataType"/>
+                <NavigationProperty Name="SiblingEntity" Type="com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.WFBPGovRecordsType"/>
+            </EntityType>
+            <EntityType Name="I_DraftAdministrativeDataType">
+                <Key>
+                    <PropertyRef Name="DraftUUID"/>
+                    <PropertyRef Name="DraftEntityType"/>
+                </Key>
+                <Property Name="DraftUUID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="DraftEntityType" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="CreationDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="CreatedByUser" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="LastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="LastChangedByUser" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="DraftAccessType" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="ProcessingStartDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="InProcessByUser" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="DraftIsKeptByUser" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="EnqueueStartDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="DraftIsCreatedByMe" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="DraftIsLastChangedByMe" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="DraftIsProcessedByMe" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="CreatedByUserDescription" Type="Edm.String" Nullable="false" MaxLength="80"/>
+                <Property Name="LastChangedByUserDescription" Type="Edm.String" Nullable="false" MaxLength="80"/>
+                <Property Name="InProcessByUserDescription" Type="Edm.String" Nullable="false" MaxLength="80"/>
+            </EntityType>
+            <ComplexType Name="WFBPGovRecordsOperationControl">
+                <Property Name="Edit" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="ZI_MaintainBPParameters">
+                <Property Name="AccountAssignment" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="AuthoriserSelected" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="BusinessPartner" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="City" Type="Edm.String" Nullable="false" MaxLength="35"/>
+                <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="CompanyRegistration" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="ContractValue" Type="Edm.String" Nullable="false" MaxLength="25"/>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="CustomerFirstName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="CustomerLastName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="DateTimeRequested" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="Department" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="DistributionChannel" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="241"/>
+                <Property Name="EmailFinance" Type="Edm.String" Nullable="false" MaxLength="241"/>
+                <Property Name="PostCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="ReferenceBusinessPartner" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="RequestedBy" Type="Edm.String" Nullable="false" MaxLength="15"/>
+                <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Street1" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="Street2" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="TelNumber1" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="TelNumber2" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="VatRegistration" Type="Edm.String" Nullable="false" MaxLength="60"/>
+            </ComplexType>
+            <ComplexType Name="EntityControl">
+                <Property Name="Deletable" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="Updatable" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="SAP__Message">
+                <Property Name="code" Type="Edm.String" Nullable="false"/>
+                <Property Name="message" Type="Edm.String" Nullable="false"/>
+                <Property Name="target" Type="Edm.String"/>
+                <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+                <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="longtextUrl" Type="Edm.String"/>
+            </ComplexType>
+            <Action Name="MaintainBusinessPartner" IsBound="true">
+                <Parameter Name="_it" Type="Collection(com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.WFBPGovRecordsType)" Nullable="false"/>
+                <Parameter Name="BusinessPartner" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Parameter Name="ReferenceBusinessPartner" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Parameter Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Parameter Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Parameter Name="DistributionChannel" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Parameter Name="Division" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Parameter Name="CustomerFirstName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Parameter Name="CustomerLastName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Parameter Name="Street1" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Parameter Name="Street2" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Parameter Name="City" Type="Edm.String" Nullable="false" MaxLength="35"/>
+                <Parameter Name="PostCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Parameter Name="Country" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Parameter Name="Email" Type="Edm.String" Nullable="false" MaxLength="241"/>
+                <Parameter Name="EmailFinance" Type="Edm.String" Nullable="false" MaxLength="241"/>
+                <Parameter Name="TelNumber1" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Parameter Name="TelNumber2" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Parameter Name="AccountAssignment" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Parameter Name="VatRegistration" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Parameter Name="CompanyRegistration" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Parameter Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Parameter Name="ContractValue" Type="Edm.String" Nullable="false" MaxLength="25"/>
+                <Parameter Name="Department" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Parameter Name="RequestedBy" Type="Edm.String" Nullable="false" MaxLength="15"/>
+                <Parameter Name="AuthoriserSelected" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Parameter Name="DateTimeRequested" Type="Edm.DateTimeOffset" Nullable="true" Precision="7"/>
+                <ReturnType Type="Collection(com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.ZI_MaintainBPParameters)" Nullable="true"/>
+            </Action>
+            <Action Name="Discard" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.WFBPGovRecordsType" Nullable="false"/>
+            </Action>
+            <Action Name="Activate" EntitySetPath="_it" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.WFBPGovRecordsType" Nullable="false"/>
+                <ReturnType Type="com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.WFBPGovRecordsType" Nullable="false"/>
+            </Action>
+            <Action Name="Edit" EntitySetPath="_it" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.WFBPGovRecordsType" Nullable="false"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean" Nullable="false"/>
+                <ReturnType Type="com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.WFBPGovRecordsType" Nullable="false"/>
+            </Action>
+            <Action Name="Resume" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.WFBPGovRecordsType" Nullable="false"/>
+            </Action>
+            <Action Name="Prepare" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.WFBPGovRecordsType" Nullable="false"/>
+            </Action>
+            <EntityContainer Name="Container">
+                <EntitySet Name="I_DraftAdministrativeData" EntityType="com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.I_DraftAdministrativeDataType"/>
+                <EntitySet Name="WFBPGovRecords" EntityType="com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.WFBPGovRecordsType">
+                    <NavigationPropertyBinding Path="DraftAdministrativeData" Target="I_DraftAdministrativeData"/>
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="WFBPGovRecords"/>
+                </EntitySet>
+            </EntityContainer>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/Currency">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.Label" String="Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/WfBpgovrecordsID">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="UUID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="16 Byte UUID in 16 Bytes (Raw Format)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/BusinessPartner">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Business Partner"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Partner Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/TelNumber1">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Tel Num 1"/>
+                <Annotation Term="SAP__common.Heading" String="Tel Number 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Tel Number 1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/TelNumber2">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Tel Num 2"/>
+                <Annotation Term="SAP__common.Heading" String="Tel Number 2"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Tel Number 2"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/AccountAssignment">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Account Assignment"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/Currency">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/CreatedBy">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Created By"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Created By User"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/LocalInstanceLastChangedAt">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Changed On"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Local Instance Last Change Date Time"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/HasDraftEntity">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Has Draft"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Draft - Indicator - Has draft document"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/DraftEntityCreationDateTime">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft Created On"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/DraftEntityLastChangeDateTime">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft Last Changed On"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/HasActiveEntity">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Has active"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Draft - Indicator - Has active document"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/IsActiveEntity">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Is active"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Draft - Indicator - Is active document"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/__EntityControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/__OperationControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/WFBPGovRecords">
+                <Annotation Term="SAP__common.DraftRoot">
+                    <Record>
+                        <PropertyValue Property="DiscardAction" String="com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.Discard"/>
+                        <PropertyValue Property="ActivationAction" String="com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.Activate"/>
+                        <PropertyValue Property="EditAction" String="com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.Edit"/>
+                        <PropertyValue Property="PreparationAction" String="com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.Prepare"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="DraftEntityCreationDateTime"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="DraftEntityLastChangeDateTime"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>__EntityControl</PropertyPath>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>__EntityControl</PropertyPath>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Path="__EntityControl/Deletable"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Path="__EntityControl/Updatable"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection>
+                        <PropertyPath>LocalInstanceLastChangedAt</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/Currency">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.Label" String="Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Edit(SAP__self.WFBPGovRecordsType)">
+                <Annotation Term="SAP__core.OperationAvailable" Path="_it/__OperationControl/Edit"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType">
+                <Annotation Term="SAP__common.Label" String="Projection View for ZI_WFBPGOVRECORDS_M"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="WFBPGovRecords"/>
+                            <PropertyValue Property="ID" String="idIdentification"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="WFBPGovRecords"/>
+                        <PropertyValue Property="TypeNamePlural" String="WFBPGovRecordss"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ReferenceBusinessPartner"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CompanyCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrganization"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DistributionChannel"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Division"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CustomerFirstName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CustomerLastName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Street1"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Street2"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="City"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PostCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Country"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Email"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="EmailFinance"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="TelNumber1"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="TelNumber2"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="AccountAssignment"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="VatRegistration"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CompanyRegistration"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Currency"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ContractValue"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Department"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="RequestedBy"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="AuthoriserSelected"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CreatedBy"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CreatedAt"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Maintain Business Partner"/>
+                            <PropertyValue Property="Action" String="com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.MaintainBusinessPartner(Collection(com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.WFBPGovRecordsType))"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="SAP__UI.OperationGroupingType/Isolated"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ReferenceBusinessPartner"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CompanyCode"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrganization"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DistributionChannel"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Division"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CustomerFirstName"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CustomerLastName"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Street1"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Street2"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="City"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PostCode"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Country"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Email"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="EmailFinance"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="TelNumber1"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="TelNumber2"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="AccountAssignment"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="VatRegistration"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CompanyRegistration"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Currency"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ContractValue"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Department"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="RequestedBy"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="AuthoriserSelected"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CreatedBy"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CreatedAt"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="Communication.Contact">
+                    <Record/>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.CurrencyCodes">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="Currencies"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="SAP__aggregation.RollupType/None"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/DraftEntityType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft Entity ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/CreatedByUser">
+                <Annotation Term="SAP__common.Text" Path="CreatedByUserDescription"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_draftadministrativeuservh/0001;ps='srvd-zui_wfbpgovrecords_m-0001';va='com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.et-i_draftadministrativedata.createdbyuser'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="Draft Created By"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/LastChangedByUser">
+                <Annotation Term="SAP__common.Text" Path="LastChangedByUserDescription"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_draftadministrativeuservh/0001;ps='srvd-zui_wfbpgovrecords_m-0001';va='com.sap.gateway.srvd.zui_wfbpgovrecords_m.v0001.et-i_draftadministrativedata.lastchangedbyuser'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="Draft Last Changed By"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/DraftAccessType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft Access Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/InProcessByUser">
+                <Annotation Term="SAP__common.Text" Path="InProcessByUserDescription"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft In Process By"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType">
+                <Annotation Term="SAP__common.Label" String="Draft Administration Data"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/I_DraftAdministrativeData">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/OR SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group SAP__capabilities.SearchExpressions/phrase"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="CreationDateTime"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="LastChangeDateTime"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/DraftUUID">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft (Technical ID)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/ProcessingStartDateTime">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft In Process Since"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/DraftIsKeptByUser">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft Is Kept By User"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/EnqueueStartDateTime">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft Locked Since"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/DraftIsCreatedByMe">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft Created By Me"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/DraftIsLastChangedByMe">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft Last Changed By Me"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/DraftIsProcessedByMe">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft In Process By Me"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/CreatedByUserDescription">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft Created By (Description)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/LastChangedByUserDescription">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft Last Changed By (Description)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/InProcessByUserDescription">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Draft In Process By (Description)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/ReferenceBusinessPartner">
+                <Annotation Term="SAP__common.Label" String="Ref Bus Partner"/>
+                <Annotation Term="SAP__common.Heading" String="Reference Business Partner"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Reference Business Partner"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/CompanyCode">
+                <Annotation Term="SAP__common.Label" String="Company Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/SalesOrganization">
+                <Annotation Term="SAP__common.Label" String="Sales Org"/>
+                <Annotation Term="SAP__common.Heading" String="Sales Organisation"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Sales Organization"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/DistributionChannel">
+                <Annotation Term="SAP__common.Label" String="Dist Chnl"/>
+                <Annotation Term="SAP__common.Heading" String="Distribution Channel"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Distribution Channel"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/Division">
+                <Annotation Term="SAP__common.Label" String="Div"/>
+                <Annotation Term="SAP__common.Heading" String="Division"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Division"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/CustomerFirstName">
+                <Annotation Term="SAP__common.Label" String="Cust Fst Name"/>
+                <Annotation Term="SAP__common.Heading" String="Customer First Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Customer First Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/CustomerLastName">
+                <Annotation Term="SAP__common.Label" String="Cust Lst Name"/>
+                <Annotation Term="SAP__common.Heading" String="Customer Last Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Customer Last Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/Street1">
+                <Annotation Term="SAP__common.Label" String="Street Line 1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/Street2">
+                <Annotation Term="SAP__common.Label" String="Street Line 2"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/City">
+                <Annotation Term="SAP__common.Label" String="City"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/PostCode">
+                <Annotation Term="SAP__common.Label" String="Postal Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/Country">
+                <Annotation Term="SAP__common.Label" String="Country"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/Email">
+                <Annotation Term="SAP__common.Label" String="E-Mail Address"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Email Address"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/EmailFinance">
+                <Annotation Term="SAP__common.Label" String="E-Mail Finance"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Email Finance"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/VatRegistration">
+                <Annotation Term="SAP__common.Label" String="VAT Reg"/>
+                <Annotation Term="SAP__common.Heading" String="VAT Registration"/>
+                <Annotation Term="SAP__common.QuickInfo" String="VAT Registration"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/CompanyRegistration">
+                <Annotation Term="SAP__common.Label" String="Comp Reg"/>
+                <Annotation Term="SAP__common.Heading" String="Company Registration"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Company Registration"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/ContractValue">
+                <Annotation Term="SAP__common.Label" String="Contract Val"/>
+                <Annotation Term="SAP__common.Heading" String="Contract Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Contract Value"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/Department">
+                <Annotation Term="SAP__common.Label" String="Department"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/RequestedBy">
+                <Annotation Term="SAP__common.Label" String="Req by"/>
+                <Annotation Term="SAP__common.Heading" String="Requested by"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Requested By"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/AuthoriserSelected">
+                <Annotation Term="SAP__common.Label" String="Auth Selected"/>
+                <Annotation Term="SAP__common.Heading" String="Authoriser Selected"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Authoriser Selected"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/DateTimeRequested">
+                <Annotation Term="SAP__common.Label" String="Created On"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Creation Date Time"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/Actions">
+                <Annotation Term="SAP__common.Label" String="Truth Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Truth Value: True/False"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/CreatedAt">
+                <Annotation Term="SAP__common.Label" String="Created On"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Creation Date Time"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/__EntityControl/Deletable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/__EntityControl/Updatable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsType/__OperationControl/Edit">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/CreationDateTime">
+                <Annotation Term="SAP__common.Label" String="Draft Created On"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_DraftAdministrativeDataType/LastChangeDateTime">
+                <Annotation Term="SAP__common.Label" String="Draft Last Changed On"/>
+            </Annotations>
+            <Annotations Target="SAP__self.WFBPGovRecordsOperationControl/Edit">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/AccountAssignment">
+                <Annotation Term="SAP__common.Label" String="Account Assignment"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/AuthoriserSelected">
+                <Annotation Term="SAP__common.Label" String="Auth Selected"/>
+                <Annotation Term="SAP__common.Heading" String="Authoriser Selected"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Authoriser Selected"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/BusinessPartner">
+                <Annotation Term="SAP__common.Label" String="Business Partner"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Partner Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/City">
+                <Annotation Term="SAP__common.Label" String="City"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/CompanyCode">
+                <Annotation Term="SAP__common.Label" String="Company Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/CompanyRegistration">
+                <Annotation Term="SAP__common.Label" String="Comp Reg"/>
+                <Annotation Term="SAP__common.Heading" String="Company Registration"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Company Registration"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/ContractValue">
+                <Annotation Term="SAP__common.Label" String="Contract Val"/>
+                <Annotation Term="SAP__common.Heading" String="Contract Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Contract Value"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/Country">
+                <Annotation Term="SAP__common.Label" String="Country"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/CustomerFirstName">
+                <Annotation Term="SAP__common.Label" String="Cust Fst Name"/>
+                <Annotation Term="SAP__common.Heading" String="Customer First Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Customer First Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/CustomerLastName">
+                <Annotation Term="SAP__common.Label" String="Cust Lst Name"/>
+                <Annotation Term="SAP__common.Heading" String="Customer Last Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Customer Last Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/DateTimeRequested">
+                <Annotation Term="SAP__common.Label" String="Created On"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Creation Date Time"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/Department">
+                <Annotation Term="SAP__common.Label" String="Department"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/DistributionChannel">
+                <Annotation Term="SAP__common.Label" String="Dist Chnl"/>
+                <Annotation Term="SAP__common.Heading" String="Distribution Channel"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Distribution Channel"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/Division">
+                <Annotation Term="SAP__common.Label" String="Div"/>
+                <Annotation Term="SAP__common.Heading" String="Division"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Division"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/Email">
+                <Annotation Term="SAP__common.Label" String="E-Mail Address"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Email Address"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/EmailFinance">
+                <Annotation Term="SAP__common.Label" String="E-Mail Finance"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Email Finance"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/PostCode">
+                <Annotation Term="SAP__common.Label" String="Postal Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/ReferenceBusinessPartner">
+                <Annotation Term="SAP__common.Label" String="Ref Bus Partner"/>
+                <Annotation Term="SAP__common.Heading" String="Reference Business Partner"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Reference Business Partner"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/RequestedBy">
+                <Annotation Term="SAP__common.Label" String="Req by"/>
+                <Annotation Term="SAP__common.Heading" String="Requested by"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Requested By"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/SalesOrganization">
+                <Annotation Term="SAP__common.Label" String="Sales Org"/>
+                <Annotation Term="SAP__common.Heading" String="Sales Organisation"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Sales Organization"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/Street1">
+                <Annotation Term="SAP__common.Label" String="Street Line 1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/Street2">
+                <Annotation Term="SAP__common.Label" String="Street Line 2"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/TelNumber1">
+                <Annotation Term="SAP__common.Label" String="Tel Num 1"/>
+                <Annotation Term="SAP__common.Heading" String="Tel Number 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Tel Number 1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/TelNumber2">
+                <Annotation Term="SAP__common.Label" String="Tel Num 2"/>
+                <Annotation Term="SAP__common.Heading" String="Tel Number 2"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Tel Number 2"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_MaintainBPParameters/VatRegistration">
+                <Annotation Term="SAP__common.Label" String="VAT Reg"/>
+                <Annotation Term="SAP__common.Heading" String="VAT Registration"/>
+                <Annotation Term="SAP__common.QuickInfo" String="VAT Registration"/>
+            </Annotations>
+            <Annotations Target="SAP__self.EntityControl/Deletable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.EntityControl/Updatable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/BusinessPartner">
+                <Annotation Term="SAP__common.Label" String="Business Partner"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Partner Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/ReferenceBusinessPartner">
+                <Annotation Term="SAP__common.Label" String="Ref Bus Partner"/>
+                <Annotation Term="SAP__common.Heading" String="Reference Business Partner"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Reference Business Partner"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/CompanyCode">
+                <Annotation Term="SAP__common.Label" String="Company Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/SalesOrganization">
+                <Annotation Term="SAP__common.Label" String="Sales Org"/>
+                <Annotation Term="SAP__common.Heading" String="Sales Organisation"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Sales Organization"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/DistributionChannel">
+                <Annotation Term="SAP__common.Label" String="Dist Chnl"/>
+                <Annotation Term="SAP__common.Heading" String="Distribution Channel"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Distribution Channel"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/Division">
+                <Annotation Term="SAP__common.Label" String="Div"/>
+                <Annotation Term="SAP__common.Heading" String="Division"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Division"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/CustomerFirstName">
+                <Annotation Term="SAP__common.Label" String="Cust Fst Name"/>
+                <Annotation Term="SAP__common.Heading" String="Customer First Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Customer First Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/CustomerLastName">
+                <Annotation Term="SAP__common.Label" String="Cust Lst Name"/>
+                <Annotation Term="SAP__common.Heading" String="Customer Last Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Customer Last Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/Street1">
+                <Annotation Term="SAP__common.Label" String="Street Line 1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/Street2">
+                <Annotation Term="SAP__common.Label" String="Street Line 2"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/City">
+                <Annotation Term="SAP__common.Label" String="City"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/PostCode">
+                <Annotation Term="SAP__common.Label" String="Postal Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/Country">
+                <Annotation Term="SAP__common.Label" String="Country"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/Email">
+                <Annotation Term="SAP__common.Label" String="E-Mail Address"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Email Address"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/EmailFinance">
+                <Annotation Term="SAP__common.Label" String="E-Mail Finance"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Email Finance"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/TelNumber1">
+                <Annotation Term="SAP__common.Label" String="Tel Num 1"/>
+                <Annotation Term="SAP__common.Heading" String="Tel Number 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Tel Number 1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/TelNumber2">
+                <Annotation Term="SAP__common.Label" String="Tel Num 2"/>
+                <Annotation Term="SAP__common.Heading" String="Tel Number 2"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Tel Number 2"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/AccountAssignment">
+                <Annotation Term="SAP__common.Label" String="Account Assignment"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/VatRegistration">
+                <Annotation Term="SAP__common.Label" String="VAT Reg"/>
+                <Annotation Term="SAP__common.Heading" String="VAT Registration"/>
+                <Annotation Term="SAP__common.QuickInfo" String="VAT Registration"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/CompanyRegistration">
+                <Annotation Term="SAP__common.Label" String="Comp Reg"/>
+                <Annotation Term="SAP__common.Heading" String="Company Registration"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Company Registration"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/ContractValue">
+                <Annotation Term="SAP__common.Label" String="Contract Val"/>
+                <Annotation Term="SAP__common.Heading" String="Contract Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Contract Value"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/Department">
+                <Annotation Term="SAP__common.Label" String="Department"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/RequestedBy">
+                <Annotation Term="SAP__common.Label" String="Req by"/>
+                <Annotation Term="SAP__common.Heading" String="Requested by"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Requested By"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/AuthoriserSelected">
+                <Annotation Term="SAP__common.Label" String="Auth Selected"/>
+                <Annotation Term="SAP__common.Heading" String="Authoriser Selected"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Authoriser Selected"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaintainBusinessPartner(Collection(SAP__self.WFBPGovRecordsType))/DateTimeRequested">
+                <Annotation Term="SAP__common.Label" String="Created On"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Creation Date Time"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Edit(SAP__self.WFBPGovRecordsType)/PreserveChanges">
+                <Annotation Term="SAP__common.Label" String="TRUE"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Data element for domain BOOLE: TRUE (='X') and FALSE (=' ')"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

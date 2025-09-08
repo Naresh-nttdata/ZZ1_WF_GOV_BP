@@ -1,0 +1,157 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:u="sap.ui.unified"
+    xmlns:fs="sap.ui.layout.form"
+    xmlns:layout="sap.ui.layout"
+>
+    <Dialog
+        id="wizardDialog"
+        showHeader="false"
+        verticalScrolling="false"
+        contentHeight="100%"
+        contentWidth="100%" >
+        <f:DynamicPage
+            id="RequestDynamicPage"
+            stickySubheaderProvider="CreateProductWizard"
+            toggleHeaderOnTitleClick="false"
+            class="sapUiNoContentPadding"
+            showFooter="true">
+            <f:title>
+                <f:DynamicPageTitle id="RequestDynamicPageTitle">
+                    <f:heading>
+                        <Title
+                            text="{i18n>CreateBusinessPartner}"
+                            id="TitleBp"/>
+                    </f:heading>
+                </f:DynamicPageTitle>
+            </f:title>
+            <f:content>
+                        <fs:SimpleForm
+                            id="simpleFormCreateBP"
+                            layout="ResponsiveGridLayout"
+                            columnsM="2"
+                            columnsL="2"
+                            columnsXL="3" >
+                            <core:Title text="{i18n>Header}" />
+                            <Label
+                                id="labelBusinessPartnerForm"
+                                text="{i18n>BusinessPartnerForm}"
+                                required="true"  />
+                            <ComboBox
+                                id="comboBoxBusinessPartnerForm"
+                                
+                                selectedKey="{createBP>/BusinessPartnerForm}" >
+                                <items>
+                                    <core:Item
+                                        id="ResearchCustomerBPForm"
+                                        key="RC"
+                                        text="{i18n>ResearchCustomer}"  />
+                                    <core:Item
+                                        id="NonResearchCustomerBPForm"
+                                        key="NRC"
+                                        text="{i18n>NonResearchCustomer}" />
+                                </items>
+                            </ComboBox>
+                            <Label
+                                id="labelBusinessPartnerCategory"
+                                text="{i18n>BusinessPartnerCategory}"
+                                required="true"  />
+                            <ComboBox
+                                id="comboBoxBusinessPartnerCategory"
+                                
+                                selectedKey="{createBP>/BusinessPartnerCategory}" >
+                                <items>
+                                    <core:Item
+                                        id="PersonCustomerBPCategory"
+                                        key="Person"
+                                        text="{i18n>Person}"  />
+                                    <core:Item
+                                        id="organisationCustomerBPCategory"
+                                        key="Category"
+                                        text="{i18n>Category}" />
+                                </items>
+                            </ComboBox>
+                            <Label text = "{i18n>ReferrenceBusinessPartner}"/>
+                            <Input value ="{createBP>/ReferenceBusinessPartner}"  />
+                            <Label text = "{i18n>CompanyCode}"/>
+                            <Input value ="{createBP>/CompanyCode}"  />
+                            <Label text = "{i18n>SalesOrganisation}"/>
+                            <Input value ="{createBP>/SalesOrganization}"  />
+                            <Label text = "{i18n>DistributionChannel}"/>
+                            <Input value ="{createBP>/DistributionChannel}"  />
+                            <Label text = "{i18n>Division}"/>
+                            <Input value ="{createBP>/Division}"  />
+                            <core:Title text="{i18n>Address}" />
+                            <Label text = "{i18n>CustomerFirstName}"/>
+                            <Input value ="{createBP>/CustomerFirstName}"  />
+                            <Label text = "{i18n>CustomerLastName}"/>
+                            <Input value ="{createBP>/CustomerLastName}"  />
+                            <Label text = "{i18n>Street1}"/>
+                            <Input value ="{createBP>/Street1}"  />
+                            <Label text = "{i18n>Street2}"/>
+                            <Input value ="{createBP>/Street2}"  />
+                            <Label text = "{i18n>City}"/>
+                            <Input value ="{createBP>/City}"  />
+                            <Label text = "{i18n>PostCode}"/>
+                            <Input value ="{createBP>/PostCode}"  />
+                            <Label text = "{i18n>Country}"/>
+                            <Input value ="{createBP>/Country}"  />
+                            <core:Title text="{i18n>Contacts}" />
+                            <Label text = "{i18n>FinanceContact}"/>
+                            <Input value ="{createBP>/FinanceContact}"  />
+                            <Label text = "{i18n>Email}"/>
+                            <Input value ="{createBP>/Email}"  />
+                            <Label text = "{i18n>EmailFinance}"/>
+                            <Input value ="{createBP>/EmailFinance}"  />
+                            <Label text = "{i18n>TelNumber1}"/>
+                            <Input value ="{createBP>/TelNumber1}"  />
+                            <Label text = "{i18n>TelNumber2}"/>
+                            <Input value ="{createBP>/TelNumber2}"  />
+                            <core:Title text="{i18n>VAT Details}" />
+                            <Label text = "{i18n>AccountAssignment}"/>
+                            <Input value ="{createBP>/AccountAssignment}"  />
+                            <Label text = "{i18n>VatRegistration}"/>
+                            <Input value ="{createBP>/VatRegistration}"  />
+                            <Label text = "{i18n>CompanyRegistration}"/>
+                            <Input value ="{createBP>/CompanyRegistration}"  />
+                            <Label text = "{i18n>TelNumber1}"/>
+                            <Input value ="{createBP>/TelNumber1}"  />
+                            <Label text = "{i18n>TelNumber2}"/>
+                            <Input value ="{createBP>/TelNumber2}"  />
+                            <Label text = "{i18n>Currency}"/>
+                            <Input value ="{createBP>/Currency}"  />
+                            <Label text = "{i18n>ContractValue}"/>
+                            <Input value ="{createBP>/ContractValue}"  />
+                            <Label text = "{i18n>Department}"/>
+                            <Input value ="{createBP>/Department}"  />
+                            <Label text = "{i18n>RequestedBy}"/>
+                            <Input value ="{createBP>/RequestedBy}"  />
+                            <Label text = "{i18n>AuthoriserSelected}"/>
+                            <Input value ="{createBP>/AuthoriserSelected}"  />
+                            <Label text = "{i18n>DateTimeRequested}"/>
+                            <DateTimePicker value ="{createBP>/DateTimeRequested}"  />
+                        </fs:SimpleForm>
+                   
+            </f:content>
+            <f:footer>
+                <OverflowToolbar id="overflowToolBar">
+                    <ToolbarSpacer id="ToolbarSpacer" />
+                    <HBox id="idVBox">
+                        <Button
+                            text="{i18n>Submit}"
+                            id="btnfinish"
+                            press="handleWizardSubmit"/>
+                        <Button
+                            text="{i18n>Cancel}"
+                            id="btnCancel"
+                            type="Transparent"
+                            press="handleWizardCancel" />
+                    </HBox>
+                </OverflowToolbar>
+            </f:footer>
+        </f:DynamicPage>
+    </Dialog>
+</core:FragmentDefinition>

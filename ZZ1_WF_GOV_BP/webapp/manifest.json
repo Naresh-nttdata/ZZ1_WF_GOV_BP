@@ -1,0 +1,221 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "com.ndbs.fi.zwftogovernbp",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.17.6",
+      "toolsId": "b825cc6d-132d-4096-96ef-cad64ab55426"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zui_wfbpgovrecords_o4/srvd/sap/zui_wfbpgovrecords_m/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "ZWORKFLOWBPGOVERNANCE-manage": {
+          "semanticObject": "ZWORKFLOWBPGOVERNANCE",
+          "action": "manage",
+          "title": "{{ZWORKFLOWBPGOVERNANCE-manage.flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.136.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.ndbs.fi.zwftogovernbp.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "WFBPGovRecordsList",
+          "target": "WFBPGovRecordsList"
+        },
+        {
+          "pattern": "WFBPGovRecords({key}):?query:",
+          "name": "WFBPGovRecordsObjectPage",
+          "target": "WFBPGovRecordsObjectPage"
+        },
+        {
+          "name": "WFBPGovRecords__WFBPGovRecordItemsObjectPage",
+          "pattern": "WFBPGovRecords({key})/_WFBPGovRecordItems({_WFBPGovRecordItemsKey}):?query:",
+          "target": "WFBPGovRecords__WFBPGovRecordItemsObjectPage"
+        }
+      ],
+      "targets": {
+        "WFBPGovRecordsList": {
+          "type": "Component",
+          "id": "WFBPGovRecordsList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/WFBPGovRecords",
+              "variantManagement": "Page",
+              "navigation": {
+                "WFBPGovRecords": {
+                  "detail": {
+                    "route": "WFBPGovRecordsObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  },
+                  "actions": {
+                    "CreateBP": {
+                      "press": ".extension.com.ndbs.fi.zwftogovernbp.ext.controller.ListReportExt.CreateBusinessPartner",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "New Customer Request"
+                    }
+                  }
+                }
+              },
+              "defaultTemplateAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#tableView"
+            }
+          }
+        },
+        "WFBPGovRecordsObjectPage": {
+          "type": "Component",
+          "id": "WFBPGovRecordsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/WFBPGovRecords",
+              "content": {
+                "header": {
+                  "actions": {
+                    "CustomEdit": {
+                      "press": ".extension.com.ndbs.fi.zwftogovernbp.ext.controller.ObjectPageExt.Edit",
+                      "visible": "{createBP>/isEditEnabled}",
+                      "enabled": true,
+                      "text": "{i18n>Edit}"
+                    }
+                  }
+                }
+              },
+              "navigation": {
+                "_WFBPGovRecordItems": {
+                  "detail": {
+                    "route": "WFBPGovRecords__WFBPGovRecordItemsObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "WFBPGovRecords__WFBPGovRecordItemsObjectPage": {
+          "type": "Component",
+          "id": "WFBPGovRecords__WFBPGovRecordItemsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "navigation": {},
+              "contextPath": "/WFBPGovRecords/_WFBPGovRecordItems"
+            }
+          }
+        }
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ListReport.ListReportController": {
+            "controllerName": "com.ndbs.fi.zwftogovernbp.ext.controller.ListReportExt"
+          },
+          "sap.fe.templates.ObjectPage.ObjectPageController": {
+            "controllerName": "com.ndbs.fi.zwftogovernbp.ext.controller.ObjectPageExt"
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}
